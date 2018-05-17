@@ -1,6 +1,6 @@
 // Mỗi lần sửa file index, ảnh thì phải sửa cái này
 // Định dạng yyyymmdd-hhmi
-var cacheName = 'lichcuatoi-20180517-1052';
+var cacheName = 'lichcuatoi-20180517-1102';
 
 // '/images/favicon.png'
 var filesToCache = [

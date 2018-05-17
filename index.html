@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="lib/slick/slick-theme.css"/>
 
 	<!-- Add manifest here (for Progressive Web App)-->
-	<link rel="manifest" href="/manifest.json"/>
+	<link rel="manifest" href="/manifest.json?v=2"/>
 
 	<!-- Add to home screen for Safari on iOS (for Progressive Web App) -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,7 +42,7 @@
 	<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker
-				.register('/js/service-worker.js?v=1')
+				.register('/js/service-worker.js?v=2')
 				.then(function() { console.log('Service Worker Registered'); });
 		}
 	</script>
