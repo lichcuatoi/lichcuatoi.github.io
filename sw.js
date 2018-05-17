@@ -1,4 +1,4 @@
-var cacheName = 'lichcuatoi-20180517-1610';
+var cacheName = 'lichcuatoi-20180517-1617';
 
 var filesToCache = [
   '/',
@@ -61,15 +61,13 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(responsePromise);
 });
 
-self.addEventListener('activate', function(event) {
-  var cacheWhitelist = [cacheName];
-  event.waitUntil(
-    caches.keys(function(cacheNames) {
+self.addEventListener('activate', function(e) {
+  e.waitUntil(
+    caches.keys(function(keyList) {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
-          // If it is not a current cache, delete it
-          if (cacheWhitelist.indexOf(cacheName) == -1) {
-            return caches.delete(cacheName);
+        keyList.map(function(key) {
+          if (key != cacheName) {
+            return caches.delete(key);
           }
         })
       );
