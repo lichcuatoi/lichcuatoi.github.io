@@ -125,3 +125,12 @@ body {
 .calendar #amlich.show-lunar .am2 {
   opacity: 1;
 }
+.controller {
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  cursor: pointer;
+  max-width: 768px;
+  margin: 0 auto;
+}
