@@ -1,4 +1,4 @@
-var cacheName = 'lichcuatoi-20180517-1631';
+var cacheName = 'lichcuatoi-20180517-1651';
 
 var filesToCache = [
   '/',
@@ -9,7 +9,9 @@ var filesToCache = [
   "/lib/slick/slick.css",
   "/lib/slick/slick-theme.css",
   "/lib/slick/slick.min.js",
-  "/lib/jquery/jquery.min.js"
+  "/lib/jquery/jquery.min.js",
+  '/lib/noti/noti.css',
+  '/lib/noti/noti.js'
 ];
 
 self.addEventListener('install', function(e) {
@@ -49,6 +51,13 @@ self.addEventListener('fetch', function(event) {
     });
 
   event.respondWith(responsePromise);
+
+  /*
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );*/
 });
 
 self.addEventListener('activate', function(e) {

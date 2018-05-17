@@ -113,3 +113,18 @@ $(function() {
 
 	init();	
 });
+
+// Kiểm tra online, offline
+function updateNetworkStatus() {
+	if (navigator.onLine) {
+		noti.info("You are online");
+	} else {
+		noti.warning("You are offline");
+	}	
+}
+
+/*
+window.addEventListener('online',  updateNetworkStatus);
+window.addEventListener('offline', updateNetworkStatus);
+updateNetworkStatus();
+*/

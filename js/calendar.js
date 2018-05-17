@@ -694,9 +694,9 @@ var lunarCalendarGui = (function() {
 			var toDate = new Date(solarYear + '-' + solarMonth + '-' + solarDate);
 			var dateDiff = Math.ceil( ( toDate.getTime() - today.getTime() ) / oneDay );
 			if (dateDiff > 0) {
-				msg += "\\nCòn " + dateDiff + " ngày";
+				msg += "<br />Còn " + dateDiff + " ngày";
 			}
-			res += (' title="' + event + '" onclick="alert(\'' + msg + '\')"');
+			res += (' title="' + event + '" onclick="noti.info(\'' + msg + '\')"');
 		}
 		res += ('>'
 				+ '<div class="' + solarClass + '">' + solarDate + '</div>'
@@ -824,3 +824,18 @@ $(function() {
 
 	init();	
 });
+
+// Kiểm tra online, offline
+function updateNetworkStatus() {
+	if (navigator.onLine) {
+		noti.info("You are online");
+	} else {
+		noti.warning("You are offline");
+	}	
+}
+
+/*
+window.addEventListener('online',  updateNetworkStatus);
+window.addEventListener('offline', updateNetworkStatus);
+updateNetworkStatus();
+*/
