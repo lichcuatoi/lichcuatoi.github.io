@@ -1,6 +1,6 @@
-var CACHE_NAME = 'lichcuatoi-20180517-1602';
+var cacheName = 'lichcuatoi-20180517-1610';
 
-var PRECACHE_URLS = [
+var filesToCache = [
   '/',
   '/index.html',
   '/images/favicon.png',
@@ -12,14 +12,12 @@ var PRECACHE_URLS = [
   "/lib/jquery/jquery.min.js"
 ];
 
-self.addEventListener('install', function(event) {
-  function onInstall () {
-    return caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(PRECACHE_URLS);
-      });
-  }
-  event.waitUntil(onInstall(event));
+self.addEventListener('install', function(e) {
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      return cache.addAll(filesToCache);
+    })
+  );
 });
 
 self.addEventListener('fetch', function(event) {
@@ -35,7 +33,7 @@ self.addEventListener('fetch', function(event) {
       // Clone it to allow us to cache it
       var responseToCache = response.clone();
 
-      caches.open(CACHE_NAME)
+      caches.open(cacheName)
         .then(function(cache) {
           cache.put(event.request, responseToCache);
         });
@@ -64,7 +62,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheWhitelist = [CACHE_NAME];
+  var cacheWhitelist = [cacheName];
   event.waitUntil(
     caches.keys(function(cacheNames) {
       return Promise.all(
