@@ -1,4 +1,4 @@
-var cacheName = 'lichcuatoi-20180517-1617';
+var cacheName = 'lichcuatoi-20180517-1624';
 
 var filesToCache = [
   '/',
@@ -24,7 +24,6 @@ self.addEventListener('fetch', function(event) {
   // If we can fetch latest version, then do so
   var responsePromise = fetch(event.request)
     .then(function(response) {
-
       // Don't cache response unless it's 2xx status
       if (!response || !response.ok) {
         return response;
@@ -32,7 +31,6 @@ self.addEventListener('fetch', function(event) {
 
       // Clone it to allow us to cache it
       var responseToCache = response.clone();
-
       caches.open(cacheName)
         .then(function(cache) {
           cache.put(event.request, responseToCache);
@@ -41,21 +39,13 @@ self.addEventListener('fetch', function(event) {
       return response;
     })
     .catch(function(err) {
-
+      // Fetch failed, maybe we are offline. Try cache...
       // NOTE: On a patchy network, it could take a long time for the fetch
       // to fail and for us to get here. TO DO: introduce a timeout.
-      console.log('Fetch failed, maybe we are offline. Try cache...', err);
-
       return caches.match(event.request)
         .then(function(response) {
-          if (response) {
-            console.log('Cache hit', event.request);
-            return response;
-          } else {
-            console.log('Offline cache miss =(');
-          }
+          return response;
         });
-
     });
 
   event.respondWith(responsePromise);
