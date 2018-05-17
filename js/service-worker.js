@@ -1,4 +1,4 @@
-var cacheName = 'lichcuatoi-20180517-1530';
+var cacheName = 'lichcuatoi-20180517-1602';
 
 var filesToCache = [
   '/',
