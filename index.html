@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="lib/slick/slick-theme.css"/>
 
 	<!-- Add manifest here (for Progressive Web App)-->
-	<link rel="manifest" href="/manifest.json?v=2"/>
+	<link rel="manifest" href="/manifest.json"/>
 
 	<!-- Add to home screen for Safari on iOS (for Progressive Web App) -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
 		<div class="controller">
 			<label>
 				<input type="checkbox" id="showLunarDate"/>
-				Hiện âm lịch
+				Hiện âm lịch v6
 			</label>
 		</div>
 	</div>
@@ -42,7 +42,7 @@
 	<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker
-				.register('/js/service-worker.js?v=5')
+				.register('/js/service-worker.js')
 				.then(function() { console.log('Service Worker Registered'); });
 		}
 	</script>
