@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .thang-header {
   width: 100%;
   font-family: "Roboto Condensed", sans-serif;
@@ -97,15 +101,14 @@
   color: #004080;
 }
 .calendar {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 5px;
+  margin: 0px auto;
+  padding: 0px;
   overflow: hidden;
   position: relative;
 }
-@media (min-width: 400px) {
+@media (min-width: 768px) {
   .calendar {
-    max-width: 400px;
+    max-width: 768px;
   }
 }
 .calendar .amlich-item {
